@@ -163,7 +163,7 @@ client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
 })
 client.on("ready", () => {
   function lol() {
-    client.guilds.get('ايدي السيرفر').roles.find("name", "اسم الرتبة").setColor("RANDOM");
+    client.guilds.get('517740329219391498').roles.find("name", "Owner").setColor("RANDOM");
   };
   setInterval(lol, 1600);
 });
