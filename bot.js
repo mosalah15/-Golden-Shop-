@@ -171,9 +171,6 @@ client.on("ready", () => {
   };
   setInterval(lol, 1600);
 });
-const invites = {};
-
-const wait = require('util').promisify(setTimeout);
 
 client.on('ready', () => {
   wait(1000);
