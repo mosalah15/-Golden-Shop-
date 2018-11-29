@@ -199,7 +199,7 @@ client.on('guildMemberAdd', member => {
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
     const stewart = member.guild.channels.find("name", "general");
-     stewart.send(`<@${member.user.id}> invited By  <@${inviter.id}> :tada:`);
+     stewart.send(`<@${member.user.id}> invited By  <@${inviter.id}>`);
    //  stewart.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
   }); 
 });
