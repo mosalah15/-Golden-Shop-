@@ -161,4 +161,10 @@ client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
    //  stewart.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
   });
 })
+client.on("ready", () => {
+  function lol() {
+    client.guilds.get('ايدي السيرفر').roles.find("name", "اسم الرتبة").setColor("RANDOM");
+  };
+  setInterval(lol, 1600);
+});
 client.login(process.env.BOT_TOKEN); 
