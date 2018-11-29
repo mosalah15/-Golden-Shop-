@@ -98,6 +98,7 @@ msg.delete();
 })
 }
 });
+
 client.on('message', message => {
  var prefix = "-"
     if(message.content.startsWith(prefix + 'new')) {
@@ -176,4 +177,6 @@ client.on('message', message => {
             
     }
 });
+
+
 client.login(process.env.BOT_TOKEN); 
