@@ -132,11 +132,11 @@ if (message.content.toLowerCase().startsWith(prefix + `new`)) {
 if (message.content.toLowerCase().startsWith(prefix + `close`)) {
     if (!message.channel.name.startsWith(`ticket`)) return message.channel.send(`لا يمكنك استخدام أمر الإغلاق خارج قناة التذاكر`);
  
-    message.channel.send(`**confirm** : هل انت متأكد من اغلاق التذكرة ؟ اذا انت متأكد اكتب`)
+    message.channel.send(`**confirm** : هل انت متأكد من اغلاق التذكرة ؟ اذا انت متأكد فلديك دقيقة لتكتب`)
     .then((m) => {
       message.channel.awaitMessages(response => response.content === 'confirm', {
         max: 1,
-        time: 50000,
+        time: 60000,
         errors: ['time'],
       })
       .then((collected) => {
@@ -145,7 +145,7 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
         .catch(() => {
           m.edit('انتهي وقت اغلاق التذكرة').then(m2 => {
               m2.delete();
-          }, 3000);
+          }, 10000);
         });
     });
 }
