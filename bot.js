@@ -151,25 +151,12 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
 }
  
 });
-const invites = {};
-
-const wait = require('util').promisify(setTimeout);
-
-client.on('ready', () => {
-  wait(1000);
-
-  client.guilds.forEach(g => {
-    g.fetchInvites().then(guildInvites => {
-      invites[g.id] = guildInvites;
-    });
-  });
-});
 
 client.on("ready", () => {
   function lol() {
     client.guilds.get('517740329219391498').roles.find("name", "Owner").setColor("RANDOM");
   };
-  setInterval(lol, 60000);
+  setInterval(lol, 600000);
 });
 
 client.on('ready', () => {
@@ -188,7 +175,7 @@ client.on('guildMemberAdd', member => {
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
     const stewart = member.guild.channels.find("name", "general");
-     stewart.send(`<@${member.user.id}> invited By  <@${inviter.id}>`);
+     stewart.send(`<@${member.user.id}> invited By  <@${inviter.id}> :tada:`);
    //  stewart.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
   }); 
 });
