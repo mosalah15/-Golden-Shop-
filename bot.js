@@ -136,7 +136,7 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
     .then((m) => {
       message.channel.awaitMessages(response => response.content === 'confirm', {
         max: 1,
-        time: 10000,
+        time: 50000,
         errors: ['time'],
       })
       .then((collected) => {
