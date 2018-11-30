@@ -267,7 +267,6 @@ client.on('message', async message => {
                                         .addField('الاسم', name, true)
                                         .addField('كم يقدر يدفع', credit, true)
                                         .addField('نوع الطلب', ordertype, true)
-                                        .addField('المهارات وسبب التقديم على الرتبة', fa2dh, true)
                                         .setTimestamp()
                                         .setFooter(message.guild.name, message.guild.iconURL)
                                        
