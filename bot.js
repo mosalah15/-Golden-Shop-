@@ -260,17 +260,20 @@ client.on('message', async message => {
                             message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                                 ordertype = collected.first().content;
                                 collected.first().delete();
+                                    msgS.edit(':timer: | **من فضلك اكتب سبب تقديمك على الرتبة والمهارات اللتي لديك لتقديمها**').then(msgS => {
+                                    message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
+                                        fa2dh = collected.first().content;
                                         
-                                let embedS = new Discord.RichEmbed()
-                                .setAuthor(message.author.tag, message.author.avatarURL)
-                                .setThumbnail(message.author.avatarURL)
-                                .setDescription('**\n:no_entry: هل انت متأكد انك تريد التقديم؟**')
-                                .setColor('GREEN')
-                                .addField('الاسم', name, true)
-                                .addField('كم يقدر يدفع', credit, true)
-                                .addField('نوع الطلب', ordertype, true)
-                                .setTimestamp()
-                                .setFooter(message.guild.name, message.guild.iconURL)
+                                        let embedS = new Discord.RichEmbed()
+                                        .setAuthor(message.author.tag, message.author.avatarURL)
+                                        .setThumbnail(message.author.avatarURL)
+                                        .setDescription('**\n:no_entry: هل انت متأكد انك تريد التقديم؟**')
+                                        .setColor('GREEN')
+                                        .addField('الاسم', name, true)
+                                        .addField('كم يقدر يدفع', credit, true)
+                                        .addField('نوع الطلب', ordertype, true)
+                                        .setTimestamp()
+                                        .setFooter(message.guild.name, message.guild.iconURL)
                                        
                                         msgS.delete();
                                         message.channel.send(embedS).then(msgS => {
