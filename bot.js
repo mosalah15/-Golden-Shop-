@@ -261,7 +261,11 @@ client.on('message', async message => {
                             message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                                 ordertype = collected.first().content;
                                 collected.first().delete();
-                                       
+                                       msgS.edit(':timer: | **من فضلك اكتب سبب تقديمك على الرتبة والمهارات اللتي لديك لتقديمها**').then(msgS => {
+                                    message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
+                                        fa2dh = collected.first().content;
+                                        collected.first().delete();
+                                        
                                         let embedS = new Discord.RichEmbed()
                                         .setAuthor(message.author.tag, message.author.avatarURL)
                                         .setThumbnail(message.author.avatarURL)
@@ -270,6 +274,7 @@ client.on('message', async message => {
                                         .addField('الاسم', name, true)
                                         .addField('كم يقدر يدفع', credit, true)
                                         .addField('نوع الطلب', ordertype, true)
+                                        .addField('المهارات وسبب التقديم على الرتبة', fa2dh, true)
                                         .setTimestamp()
                                         .setFooter(message.guild.name, message.guild.iconURL)
                                        
@@ -294,6 +299,7 @@ client.on('message', async message => {
                                                 .addField('الاسم', name)
                                                 .addField('كم يقدر يدفع', credit)
                                                 .addField('نوع الطلب', ordertype)
+                                                .addField('المهارات وسبب التقديم على الرتبة', fa2dh, true)
                                                 .addField('حسابه', message.author)
                                                 .addField('ايدي حسابه', message.author.id, true)
                                                
