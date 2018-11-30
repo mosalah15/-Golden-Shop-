@@ -327,10 +327,18 @@ client.on('message', async message => {
                                             });// Alpha Codes
                                             dontSend.on('collect', r => {
                                                 msgS.delete();
-                                                message.channel.send(':x: | تم الغاء تقديمك');
-})
-})
-})
-}
+                                               
+                                                message.channel.send(':x: | تم الغاء تقديمك');// Alpha Codes
+                                            });
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    }
 });
 client.login(process.env.BOT_TOKEN); 
