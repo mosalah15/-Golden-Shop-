@@ -260,9 +260,10 @@ client.on('message', async message => {
                             message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                                 ordertype = collected.first().content;
                                 collected.first().delete();
-                                    msgS.edit(':timer: | **من فضلك اكتب سبب تقديمك على الرتبة والمهارات اللتي لديك لتقديمها**').then(msgS => {
-                                    message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
-                                        fa2dh = collected.first().content;
+                                    
+                                    
+                                    
+                                        
                                         
                                         let embedS = new Discord.RichEmbed()
                                         .setAuthor(message.author.tag, message.author.avatarURL)
