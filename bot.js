@@ -185,5 +185,17 @@ client.on("ready", () => {
   setInterval(lol, 60000);
 });
 
+client.on ("guildMemberAdd", member => {
+  
+   var role = member.guild.roles.find ("name", "♛『 Five. 』♛");
+   member.addRole (role);
+  
+})
+
+client.on ("guildMemberRemove", member => {
+   
+})
+});
+
 
 client.login(process.env.BOT_TOKEN); 
