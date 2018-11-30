@@ -236,6 +236,7 @@ client.on('message', async message => {
     var name = '';// Alpha Codes
     var credit = '';// Alpha Codes
     var ordertype = '';// Alpha Codes
+    var quantity = '';// Alpha Codes
     var filter = m => m.author.id === message.author.id;// Alpha Codes
     var subChannel = message.guild.channels.find(c => c.name === 'support-join');// Alpha Codes
    
@@ -256,11 +257,14 @@ client.on('message', async message => {
                     message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                         credit = collected.first().content;
                         collected.first().delete();
-                                msgS.edit(':timer: | **نوع طلبك؟**').then(msgS => {
+                        msgS.edit(':timer: | **نوع طلبك؟**').then(msgS => {
+                            message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
+                                ordertype = collected.first().content;
+                                collected.first().delete();
+                                msgS.edit(':timer: | **الكميه المطلوبه**').then(msgS => {
                                     message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
-                                        ordertype = collected.first().content;
+                                        quantity = collected.first().content;
                                         collected.first().delete();
-                                       
                                         let embedS = new Discord.RichEmbed()
                                         .setAuthor(message.author.tag, message.author.avatarURL)
                                         .setThumbnail(message.author.avatarURL)
@@ -269,6 +273,7 @@ client.on('message', async message => {
                                         .addField('الاسم', name, true)
                                         .addField('كم يقدر يدفع', credit, true)
                                         .addField('نوع الطلب', ordertype, true)
+                                        .addField('الكميه المطلوبه', quantity, true)
                                         .setTimestamp()
                                         .setFooter(message.guild.name, message.guild.iconURL)
                                        
@@ -292,36 +297,17 @@ client.on('message', async message => {
                                                 .setThumbnail(message.author.avatarURL)
                                                 .addField('الاسم', name)
                                                 .addField('كم يقدر يدفع', credit)
-                                                .addField('نوع الطلب', ordertype)  
+                                                .addField('نوع الطلب', ordertype)
+                                                .addField('الكميه المطلوبه', quantity, true)
                                                 .addField('حسابه', message.author)
                                                 .addField('ايدي حسابه', message.author.id, true)
                                                
-                                                subChannel.send(subMsg).then(msgS => {
-                                                    msgS.react('✅').then(() => msgS.react('❎'))
-                                                   
-                                                    let accept = (reaction, user) => reaction.emoji.name === '✅'  && user.id === 'ايدي الي يقبل الطلب'
-                                                    let noAccept = (reaction, user) => reaction.emoji.name === '❎' && user.id === 'ايدي الي يقبل الطلب'
-                                                   
-                                                    let acceptRe = msgS.createReactionCollector(accept);
-                                                    let noAcceptRe = msgS.createReactionCollector(noAccept);
-                                                   
-                                                    acceptRe.on('collect', r => {
-                                                        msgS.delete();
-                                                        message.author.send(`:white_check_mark: | تم قبولك اداري بسيرفر **${message.guild.name}**`);
-                                                        message.guild.member(message.author).addRole(modRole.id);
-                                                        message.guild.channels.find(r => r.name === 'support-accept').send(`:white_check_mark: | تم قبولك [ <@${message.author.id}> ]`);
-                                                    }).catch();
-                                                    noAcceptRe.on('collect', r => {
-                                                        msgS.delete();
-                                                        message.author.send(`:x: | تم رفضك بسيرفر **${message.guild.name}**`);
-                                                        message.guild.channels.find(r => r.name === 'support-accept').send(`:x: | تم رفضك [ <@${message.author.id}> ]`);
-                                                    }).catch();
-                                                })
-                                            });// Alpha Codes
+                                                subChannel.send(subMsg)
+                                                // Alpha Codes
                                             dontSend.on('collect', r => {
                                                 msgS.delete();
                                                
-                                                message.channel.send(':x: | تم الغاء تقديمك');// Alpha Codes
+                                                message.channel.send(':x: | تم الغاء طلبك');// Alpha Codes
                                             });
                                         })
                                     })
