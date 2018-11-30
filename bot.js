@@ -228,6 +228,5 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(`•Golden Shop•`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
-        }
-   });
+});
 client.login(process.env.BOT_TOKEN); 
