@@ -178,5 +178,12 @@ client.on('guildMemberAdd', member => {
   }); 
 });
 
+client.on("ready", () => {
+  function lol() {
+    client.guilds.get('517740329219391498').roles.find("name", "Owner").setColor("RANDOM");
+  };
+  setInterval(lol, 1600);
+});
+
 
 client.login(process.env.BOT_TOKEN); 
