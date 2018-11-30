@@ -320,17 +320,10 @@ client.on('message', async message => {
                                             });// Alpha Codes
                                             dontSend.on('collect', r => {
                                                 msgS.delete();
-                                                message.channel.send(':x: | تم الغاء تقديمك');// Alpha Codes
-                                            });
-                                        })
-                                    })
-                                })
-                            })
-                        })
-                    })
-                })
-            })
-        })
-    }
+                                                message.channel.send(':x: | تم الغاء تقديمك');
+})
+})
+})
+}
 });
 client.login(process.env.BOT_TOKEN); 
