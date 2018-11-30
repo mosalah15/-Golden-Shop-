@@ -236,6 +236,7 @@ client.on('message', async message => {
     var name = '';// Alpha Codes
     var credit = '';// Alpha Codes
     var ordertype = '';// Alpha Codes
+    var fa2dh = '';// Alpha Codes
     var filter = m => m.author.id === message.author.id;// Alpha Codes
     var subChannel = message.guild.channels.find(c => c.name === 'support-join');// Alpha Codes
    
@@ -254,7 +255,7 @@ client.on('message', async message => {
                 collected.first().delete();
                 msgS.edit(':timer: | **كم تقدر تدفع؟**').then(msgS => {
                     message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
-                        age = collected.first().content;
+                        credit = collected.first().content;
                         collected.first().delete();
                         msgS.edit(':timer: | **نوع طلبك؟**').then(msgS => {
                             message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
