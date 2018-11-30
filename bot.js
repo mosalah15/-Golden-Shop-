@@ -194,7 +194,6 @@ client.on ("guildMemberAdd", member => {
 
 client.on ("guildMemberRemove", member => {
    
-})
 });
 
 
