@@ -133,7 +133,7 @@ if (message.content.toLowerCase().startsWith(prefix + `new`)) {
 if (message.content.toLowerCase().startsWith(prefix + `close`)) {
     if (!message.channel.name.startsWith(`ticket`)) return message.channel.send(`لا يمكنك استخدام أمر الإغلاق خارج قناة التذاكر`);
  
-    message.channel.send(`**تاكيد** : هل انت متأكد من اغلاق التذكرة ؟ اذا انت متأكد فلديك دقيقة لتكتب`)
+    message.channel.send(`**confirm** : هل انت متأكد من اغلاق التذكرة ؟ اذا انت متأكد فلديك دقيقة لتكتب`)
     .then((m) => {
       message.channel.awaitMessages(response => response.content === 'confirm', {
         max: 1,
@@ -182,7 +182,7 @@ client.on("ready", () => {
   function lol() {
     client.guilds.get('517740329219391498').roles.find("name", "Owner").setColor("RANDOM");
   };
-  setInterval(lol, 160000);
+  setInterval(lol, 60000);
 });
 
 
