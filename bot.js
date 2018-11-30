@@ -294,7 +294,8 @@ client.on('message', async message => {
                                                 .addField('حسابه', message.author)
                                                 .addField('ايدي حسابه', message.author.id, true)
                                                
-                                                 subChannel.send(subMsg);
+                                                    subChannel.send(subMsg).then(msgS => {
+                                                    msgS.react('✅').then(() => msgS.react('❎'));
 })
 })
 })
