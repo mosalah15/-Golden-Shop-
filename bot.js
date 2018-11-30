@@ -220,6 +220,7 @@ client.on('message', message => {
        }
    });
 
+const prefix = "!";
 /////////////////////////
 ////////////////////////
 client.on('message', async msg =>{
