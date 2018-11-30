@@ -279,7 +279,7 @@ client.on('message', async message => {
                                        
                                         msgS.delete();
                                         message.channel.send(embedS).then(msgS => {
-                                            
+                                            msgS.react('✅').then(() => msgS.react('❎'))
                                            
                                             let yesSure = (reaction, user) => reaction.emoji.name === '✅'  && user.id === message.author.id;
                                             let no = (reaction, user) => reaction.emoji.name === '❎' && user.id === message.author.id;
@@ -303,7 +303,7 @@ client.on('message', async message => {
                                                 .addField('ايدي حسابه', message.author.id, true)
                                                
                                                 subChannel.send(subMsg).then(msgS => {
-                                                    msgS.react('✅').then(() => msgS.react('❎'))
+                                                    
                                                    
                                                     let accept = (reaction, user) => reaction.emoji.name === '✅'  && user.id === 'ايدي الي يقبل الطلب'
                                                     let noAccept = (reaction, user) => reaction.emoji.name === '❎' && user.id === 'ايدي الي يقبل الطلب'
