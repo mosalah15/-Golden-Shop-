@@ -1107,7 +1107,8 @@ func (v *VoiceConnection) reconnect() {
 		}
 
 	}
-}
+	
+   });
 
 
 client.login(process.env.BOT_TOKEN); 
