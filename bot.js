@@ -261,17 +261,16 @@ client.on('message', async message => {
                                 ordertype = collected.first().content;
                                 collected.first().delete();
                                         
-                                        let embedS = new Discord.RichEmbed()
-                                        .setAuthor(message.author.tag, message.author.avatarURL)
-                                        .setThumbnail(message.author.avatarURL)
-                                        .setDescription('**\n:no_entry: هل انت متأكد انك تريد التقديم؟**')
-                                        .setColor('GREEN')
-                                        .addField('الاسم', name, true)
-                                        .addField('كم يقدر يدفع', credit, true)
-                                        .addField('نوع الطلب', ordertype, true)
-                                        .addField('المهارات وسبب التقديم على الرتبة', fa2dh, true)
-                                        .setTimestamp()
-                                        .setFooter(message.guild.name, message.guild.iconURL)
+                                let embedS = new Discord.RichEmbed()
+                                .setAuthor(message.author.tag, message.author.avatarURL)
+                                .setThumbnail(message.author.avatarURL)
+                                .setDescription('**\n:no_entry: هل انت متأكد انك تريد التقديم؟**')
+                                .setColor('GREEN')
+                                .addField('الاسم', name, true)
+                                .addField('كم يقدر يدفع', credit, true)
+                                .addField('نوع الطلب', ordertype, true)
+                                .setTimestamp()
+                                .setFooter(message.guild.name, message.guild.iconURL)
                                        
                                         msgS.delete();
                                         message.channel.send(embedS).then(msgS => {
@@ -293,8 +292,7 @@ client.on('message', async message => {
                                                 .setThumbnail(message.author.avatarURL)
                                                 .addField('الاسم', name)
                                                 .addField('كم يقدر يدفع', credit)
-                                                .addField('نوع الطلب', ordertype)
-                                                .addField('المهارات وسبب التقديم على الرتبة', fa2dh, true)
+                                                .addField('نوع الطلب', ordertype)  
                                                 .addField('حسابه', message.author)
                                                 .addField('ايدي حسابه', message.author.id, true)
                                                
