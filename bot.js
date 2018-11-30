@@ -279,7 +279,7 @@ client.on('message', async message => {
                                        
                                         msgS.delete();
                                         message.channel.send(embedS).then(msgS => {
-                                            msgS.react('✅').then(() => msgS.react('❎'))
+                                            
                                            
                                             let yesSure = (reaction, user) => reaction.emoji.name === '✅'  && user.id === message.author.id;
                                             let no = (reaction, user) => reaction.emoji.name === '❎' && user.id === message.author.id;
