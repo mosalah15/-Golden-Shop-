@@ -492,7 +492,6 @@ const fs = require('fs');
 const gif = require("gif-search");
 
 
-const prefix = "!";
 /////////////////////////
 ////////////////////////
 client.on('message', async msg =>{
