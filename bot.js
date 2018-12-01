@@ -301,7 +301,7 @@ client.on('message', async message => {
                                                 .addField('حسابه', message.author)
                                                 .addField('ايدي حسابه', message.author.id, true)
                                                
-                                                subChannel.send(subMsg).then(msgS => {
+                                                subChannel.send(subMsg).then(msgS => {));
                                                     
                                                    
 
