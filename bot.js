@@ -106,7 +106,7 @@ if (message.content.toLowerCase().startsWith(prefix + `new`)) {
     const reason = message.content.split(" ").slice(1).join(" ");
     if (!message.guild.roles.exists("name", "invite managers")) return message.channel.send(`\`invite managers\` **لا توجد رتبة بأسم**`);
     if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`**لديك تذكرة مفتوحة بالفعل**`);
-    message.guild.createChannel(`ticket-${client.user.username}`, "text").then(c => {
+    message.guild.createChannel(`ticket-${member.user.id}}`, "text").then(c => {
         let role = message.guild.roles.find("name", "invite managers");
         let role2 = message.guild.roles.find("name", "@everyone");
         c.overwritePermissions(role, {
@@ -167,16 +167,6 @@ client.on('ready', () => {
   });
 });
 
-client.on('guildMemberAdd', member => {
-  member.guild.fetchInvites().then(guildInvites => {
-    const ei = invites[member.guild.id];
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
-    const stewart = member.guild.channels.find("name", "welcome");
-     stewart.send(`<@${member.user.id}> invited By  <@${inviter.id}>:tada:`);
-   //  stewart.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
-  }); 
-});
 
 client.on("ready", () => {
   function lol() {
@@ -852,4 +842,15 @@ if (message.content.startsWith("*cv")) {
          message.channel.send({embed:embed});
                         }
                     });
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const stewart = member.guild.channels.find("name", "welcome");
+     stewart.send(`<@${member.user.id}> invited By  <@${inviter.id}>:tada:`);
+   //  stewart.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
+  }); 
+});
+
 client.login(process.env.BOT_TOKEN); 
