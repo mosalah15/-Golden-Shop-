@@ -306,16 +306,21 @@ client.on('message', async message => {
                                                    
                                                     let accept = (reaction, user) => reaction.emoji.name === '✅'  && user.id === 'ايدي الي يقبل الطلب'
                                                     let noAccept = (reaction, user) => reaction.emoji.name === '❎' && user.id === 'ايدي الي يقبل الطلب');// Alpha Codes
-                                            });
-                                        })
+                                                });
+                                             })
+                                          })
+                                       })
                                     })
-                                })
-                            })
+                                 })
+                              })
+                           })
                         })
-                    })
-                })
+                     })
+                  })
+               })
             })
-        })
+         })
+      })
     }
 });
 client.login(process.env.BOT_TOKEN); 
