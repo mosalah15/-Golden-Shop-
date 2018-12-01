@@ -259,7 +259,7 @@ client.on('message', async message => {
                         msgS.edit(':timer: | **نوع طلبك؟**').then(msgS => {
                             message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
                                 ordertype = collected.first().content;
-                                collected.first().delete();
+                                        collected.first().delete();
                                         let embedS = new Discord.RichEmbed()
                                         .setAuthor(message.author.tag, message.author.avatarURL)
                                         .setThumbnail(message.author.avatarURL)
