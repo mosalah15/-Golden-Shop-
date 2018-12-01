@@ -232,7 +232,7 @@ client.user.setStatus("dnd")
 // Alpha Codes,// Alpha Codes,// Alpha Codes
 client.on('message', async message => {
     var command = message.content.toLowerCase().split(" ")[0];
-    var prefix = '!!';// Alpha Codes
+    var prefix = '+';// Alpha Codes
     var name = '';// Alpha Codes
     var credit = '';// Alpha Codes
     var ordertype = '';// Alpha Codes
@@ -240,7 +240,7 @@ client.on('message', async message => {
     var filter = m => m.author.id === message.author.id;// Alpha Codes
     var subChannel = message.guild.channels.find(c => c.name === 'orders');// Alpha Codes
    
-    if(command == prefix + 'join-support') {// Alpha Codes
+    if(command == prefix + 'طلب') {// Alpha Codes
         if(message.author.bot) return;
         if(message.channel.type === 'dm') return;
  
