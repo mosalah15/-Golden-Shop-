@@ -310,8 +310,6 @@ client.on('message', async message => {
                               })
                            })
                         })
-                     })
-                  })
-                }
-            });
+                      }
+                  });
 client.login(process.env.BOT_TOKEN); 
