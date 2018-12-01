@@ -268,7 +268,6 @@ client.on('message', async message => {
                                         .addField('الاسم', name, true)
                                         .addField('كم يقدر يدفع', credit, true)
                                         .addField('نوع الطلب', ordertype, true)
-                                        .addField('الكميه المطلوبه', quantity, true)
                                         .setTimestamp()
                                         .setFooter(message.guild.name, message.guild.iconURL)
                                        
@@ -293,7 +292,6 @@ client.on('message', async message => {
                                                 .addField('الاسم', name)
                                                 .addField('كم يقدر يدفع', credit)
                                                 .addField('نوع الطلب', ordertype)
-                                                .addField('الكميه المطلوبه', quantity, true)
                                                 .addField('حسابه', message.author)
                                                 .addField('ايدي حسابه', message.author.id, true)
                                                
