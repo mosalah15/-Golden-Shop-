@@ -238,16 +238,16 @@ client.on('message', async message => {
     var ordertype = '';// Alpha Codes
     var quantity = '';// Alpha Codes
     var filter = m => m.author.id === message.author.id;// Alpha Codes
-    var subChannel = message.guild.channels.find(c => c.name === 'support-join');// Alpha Codes
+    var subChannel = message.guild.channels.find(c => c.name === 'orders');// Alpha Codes
    
     if(command == prefix + 'join-support') {// Alpha Codes
         if(message.author.bot) return;
         if(message.channel.type === 'dm') return;
  
-        var modRole = message.guild.roles.find(r => r.name === '✲ SUPPORT');// Alpha Codes
+        var modRole = message.guild.roles.find(r => r.name === 'everyone');// Alpha Codes
        
         if(message.guild.member(message.author).roles.has(modRole.id)) return message.channel.send(':x: | معك الرتبة');// Alpha Codes
-        if(!subChannel) return message.channel.send(':x: | يجب ان يتوفر روم اسمه `support-join`');// Alpha Codes
+        if(!subChannel) return message.channel.send(':x: | يجب ان يتوفر روم اسمه `orders`');// Alpha Codes
        
         message.channel.send(':timer: | **اسمك؟**').then(msgS => {
             message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
@@ -268,7 +268,7 @@ client.on('message', async message => {
                                         let embedS = new Discord.RichEmbed()
                                         .setAuthor(message.author.tag, message.author.avatarURL)
                                         .setThumbnail(message.author.avatarURL)
-                                        .setDescription('**\n:no_entry: هل انت متأكد انك تريد التقديم؟**')
+                                        .setDescription('**\n:no_entry: هل انت متأكد انك تريد تقديم الطلب؟**')
                                         .setColor('GREEN')
                                         .addField('الاسم', name, true)
                                         .addField('كم يقدر يدفع', credit, true)
