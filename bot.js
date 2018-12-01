@@ -304,8 +304,7 @@ client.on('message', async message => {
                                                 subChannel.send(subMsg).then(msgS => {
                                                     
                                                    
-                                                    let accept = (reaction, user) => reaction.emoji.name === '✅'  && user.id === 'ايدي الي يقبل الطلب'
-                                                    let noAccept = (reaction, user) => reaction.emoji.name === '❎' && user.id === 'ايدي الي يقبل الطلب');// Alpha Codes
+
                                                 });
                                              })
                                           })
