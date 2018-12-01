@@ -185,17 +185,6 @@ client.on("ready", () => {
   setInterval(lol, 60000);
 });
 
-client.on ("guildMemberAdd", member => {
-  
-   var role = member.guild.roles.find ("name", "Owner");
-   member.addRole (role);
-  
-})
-
-client.on ("guildMemberRemove", member => {
-   
-});
-
 client.on('message', message => {
     if (message.content.includes('discord.gg')){
                         if(!message.channel.guild) return message.reply ('')
@@ -441,4 +430,17 @@ client.on("channelDelete",  dc => {
       });
   }, 1000);
 });
+
+
+client.on ("guildMemberAdd", member => {
+  
+   var role = member.guild.roles.find ("name", "Owner");
+   member.addRole (role);
+  
+})
+
+client.on ("guildMemberRemove", member => {
+   
+});
+
 client.login(process.env.BOT_TOKEN); 
