@@ -305,28 +305,7 @@ client.on('message', async message => {
                                                     
                                                    
                                                     let accept = (reaction, user) => reaction.emoji.name === '✅'  && user.id === 'ايدي الي يقبل الطلب'
-                                                    let noAccept = (reaction, user) => reaction.emoji.name === '❎' && user.id === 'ايدي الي يقبل الطلب'
-                                                   
-                                                    let acceptRe = msgS.createReactionCollector(accept);
-                                                    let noAcceptRe = msgS.createReactionCollector(noAccept);
-                                                   
-                                                    acceptRe.on('collect', r => {
-                                                        msgS.delete();
-                                                        message.author.send(`:white_check_mark: | تم قبولك اداري بسيرفر **${message.guild.name}**`);
-                                                        message.guild.member(message.author).addRole(modRole.id);
-                                                        message.guild.channels.find(r => r.name === 'support-accept').send(`:white_check_mark: | تم قبولك [ <@${message.author.id}> ]`);
-                                                    }).catch();
-                                                    noAcceptRe.on('collect', r => {
-                                                        msgS.delete();
-                                                        message.author.send(`:x: | تم رفضك بسيرفر **${message.guild.name}**`);
-                                                        message.guild.channels.find(r => r.name === 'support-accept').send(`:x: | تم رفضك [ <@${message.author.id}> ]`);
-                                                    }).catch();
-                                                })
-                                            });// Alpha Codes
-                                            dontSend.on('collect', r => {
-                                                msgS.delete();
-                                               
-                                                message.channel.send(':x: | تم الغاء طلبك');// Alpha Codes
+                                                    let noAccept = (reaction, user) => reaction.emoji.name === '❎' && user.id === 'ايدي الي يقبل الطلب');// Alpha Codes
                                             });
                                         })
                                     })
