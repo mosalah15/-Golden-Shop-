@@ -208,86 +208,6 @@ client.on('ready', () => {
 client.user.setGame(`•Golden Shop•`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
-// Alpha Codes,// Alpha Codes,// Alpha Codes
-client.on('message', async message => {
-    var command = message.content.toLowerCase().split(" ")[0];
-    var prefix = '+';// Alpha Codes
-    var name = '';// Alpha Codes
-    var credit = '';// Alpha Codes
-    var ordertype = '';// Alpha Codes
-    var quantity = '';// Alpha Codes
-    var filter = m => m.author.id === message.author.id;// Alpha Codes
-    var subChannel = message.guild.channels.find(c => c.name === 'orders');// Alpha Codes
-   
-    if(command == prefix + 'طلب') {// Alpha Codes
-        if(message.author.bot) return;
-        if(message.channel.type === 'dm') return;
-        
-        if(!subChannel) return message.channel.send(':x: | يجب ان يتوفر روم اسمه `orders`');// Alpha Codes
-       
-        message.channel.send(':timer: | **اسمك؟**').then(msgS => {
-            message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
-                name = collected.first().content;
-                collected.first().delete();
-                msgS.edit(':timer: | **كم تقدر تدفع؟**').then(msgS => {
-                    message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
-                        credit = collected.first().content;
-                        collected.first().delete();
-                        msgS.edit(':timer: | **نوع طلبك؟**').then(msgS => {
-                            message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(collected => {
-                                ordertype = collected.first().content;
-                                        collected.first().delete();
-                                        let embedS = new Discord.RichEmbed()
-                                        .setAuthor(message.author.tag, message.author.avatarURL)
-                                        .setThumbnail(message.author.avatarURL)
-                                        .setDescription('**\n:no_entry: هل انت متأكد انك تريد تقديم الطلب؟**')
-                                        .setColor('GREEN')
-                                        .addField('الاسم', name, true)
-                                        .addField('كم يقدر يدفع', credit, true)
-                                        .addField('نوع الطلب', ordertype, true)
-                                        .setTimestamp()
-                                        .setFooter(message.guild.name, message.guild.iconURL)
-                                       
-                                        msgS.delete();
-                                        message.channel.send(embedS).then(msgS => {
-                                            msgS.react('✅').then(() => msgS.react('❎'))
-                                           
-                                            let yesSure = (reaction, user) => reaction.emoji.name === '✅'  && user.id === message.author.id;
-                                            let no = (reaction, user) => reaction.emoji.name === '❎' && user.id === message.author.id;
-                                           
-                                            let yesSend = msgS.createReactionCollector(yesSure);
-                                            let dontSend = msgS.createReactionCollector(no);
-                                           
-                                            yesSend.on('collect', r => {
-                                                msgS.delete();
-                                                message.channel.send(':white_check_mark: | تم تقديم طلبك بنجاح انتظر النتيجة في روم support-accept').then(msg => msg.delete(5000));
-                                               
-                                                let subMsg = new Discord.RichEmbed()
-                                                .setAuthor(message.author.tag, message.author.avatarURL)
-                                                .setColor('GREEN')
-                                                .setThumbnail(message.author.avatarURL)
-                                                .addField('الاسم', name)
-                                                .addField('كم يقدر يدفع', credit)
-                                                .addField('نوع الطلب', ordertype)
-                                                .addField('حسابه', message.author)
-                                                .addField('ايدي حسابه', message.author.id, true)
-                                               
-                                                subChannel.send(subMsg).then(msgS => {
-                                                    
-                                                   
-
-                                                });
-                                             })
-                                          })
-                                       })
-                                    })
-                                 })
-                              })
-                           })
-                        })
-                      }
-                  });
-
 
 client.on ("guildMemberAdd", member => {
   
@@ -853,9 +773,9 @@ client.on('guildMemberAdd', member => {
   }); 
 });
 	client.on('message', async message => {
-  var prefix = '!';// Alpha Codes
+  var prefix = '+';// Alpha Codes
   if(message.content.startsWith(prefix + "طلب")) {
-    await message.channel.send("**ماذا تريد:small_orange_diamond:**").then(e => {
+    await message.channel.send("**اسمك ؟:small_orange_diamond:**").then(e => {
     let filter = m => m.author.id === message.author.id
     let lan = '';
     let md = '';
@@ -865,13 +785,13 @@ client.on('guildMemberAdd', member => {
       lan = collected.first().content
       collected.first().delete()
 e.delete();
-     message.channel.send('**كم تدفع :small_blue_diamond:**').then(m => {
+     message.channel.send('**كم تقدر تدفع؟  :small_blue_diamond:**').then(m => {
 let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
 .then(co => {
   md = co.first().content
         co.first().delete()
         m.delete();
-message.channel.send('**من الذي تشتري منه:shopping_cart:**').then(ms => {
+message.channel.send('**:shopping_cart: نوع الطلب؟**').then(ms => {
 let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
 .then(col => {
   br = col.first().content
@@ -883,12 +803,12 @@ ms.delete()
         setTimeout(() => {
   b.edit(`**تم التقديم وسيتم الرد فـ اقرب وقت:white_check_mark:**`)
         },2000);
-var gg = message.guild.channels.find('name','طلب')
+var gg = message.guild.channels.find('name','orders')
 if(!gg) return;
 if(gg) {
 gg.send({embed : new Discord.RichEmbed()
-.setDescription(`**ماذا تريد:scroll: » \n ${lan}\nكم تدفع :moneybag: » \n ${md} \n من الذ�� تشتري منه :round_pushpin: » \n ${br}  \n تم التقديم بوسطة :top: » <@${message.author.id}> **`)  
-          .setFooter(`Rqmi,System Team♥`)
+.setDescription(`**الاسم:scroll: » \n ${lan}\nكم يقدر يدفع :moneybag: » \n ${md} \n نوع الطلب :shopping_cart: » \n ${br}  \n تم التقديم بوسطة :bust_in_silhouette:  » <@${message.author.id}> **`)  
+          .setFooter(`♥•Golden Shop•♥`)
 .setTimestamp()
 });
 }        
