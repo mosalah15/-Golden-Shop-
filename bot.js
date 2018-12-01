@@ -811,16 +811,7 @@ gg.send({embed : new Discord.RichEmbed()
           .setFooter(`♥•Golden Shop•♥`)
 .setTimestamp()
 });
-}        
-})
-})
-})
-})
-})
-})
-})
- }
-})
+
 var prefix = "*"
 const moment = require('moment');
 client.on('message',async message => {
