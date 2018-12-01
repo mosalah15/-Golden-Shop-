@@ -232,9 +232,7 @@ client.on('message', async message => {
     if(command == prefix + 'طلب') {// Alpha Codes
         if(message.author.bot) return;
         if(message.channel.type === 'dm') return;
- 
-        var modRole = message.guild.roles.find(r => r.name === 'everyone');// Alpha Codes
-       
+        
         if(!subChannel) return message.channel.send(':x: | يجب ان يتوفر روم اسمه `orders`');// Alpha Codes
        
         message.channel.send(':timer: | **اسمك؟**').then(msgS => {
