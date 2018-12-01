@@ -853,7 +853,7 @@ client.on('guildMemberAdd', member => {
   }); 
 });
 	client.on('message', async message => {
-  var prefix = '+';// Alpha Codes
+  var prefix = '!';// Alpha Codes
   if(message.content.startsWith(prefix + "طلب")) {
     await message.channel.send("**ماذا تريد:small_orange_diamond:**").then(e => {
     let filter = m => m.author.id === message.author.id
