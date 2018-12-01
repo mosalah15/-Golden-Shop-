@@ -310,115 +310,6 @@ client.on('message', async message => {
                         })
                       }
                   });
-client.on("roleCreate", role => {
-  client.setTimeout(() => {
-    role.guild.fetchAuditLogs({
-        limit: 1,
-        type: 30
-      })
-      .then(audit => {
-        let exec = audit.entries.map(a => a.executor.username)
-        try {
-           let log = role.guild.channels.find('name', 'log');
-          if (!log) return;
-          let embed = new Discord.RichEmbed()
-            .setColor('RANDOM')
-            .setTitle('➕ RoleCreated')
-            .addField('Role Name', role.name, true)
-            .addField('Role ID', role.id, true)
-            .addField('By', exec, true)
-            .setTimestamp()
-          log.send(embed).catch(e => {
-            console.log(e);
-          });
-        } catch (e) {
-          console.log(e);
-        }
-      })
-  }, 1000)
-})
- client.on("roleDelete", role => {
-  client.setTimeout(() => {
-    role.guild.fetchAuditLogs({
-        limit: 1,
-        type: 30
-      })
-      .then(audit => {
-        let exec = audit.entries.map(a => a.executor.username)
-        try {
-           let log = role.guild.channels.find('name', 'log');
-          if (!log) return;
-          let embed = new Discord.RichEmbed()
-            .setColor('RANDOM')            
-            .setTitle('❌ RoleDeleted')
-            .addField('Role Name:', role.name, true)
-            .addField('Role ID:', role.id, true)
-            .addField('By:', exec, true)
-            .setTimestamp()
-          log.send(embed).catch(e => {
-            console.log(e);
-          });
-        } catch (e) {
-          console.log(e);
-        }
-      })
-  }, 1000)
-})
-   client.on("roleUpdate", (re,updated) => {
-    client.setTimeout(() => {
-      re.guild.fetchAuditLogs({
-          limit: 1,
-          type: 30
-        })
-        .then(audit => {
-          let exec = audit.entries.map(a => a.executor.username)
-          try {
-  
-            let log = re.guild.channels.find('name', 'log');
-            if (!log) return;
-            let embed = new Discord.RichEmbed()
-              .setColor('BLACK')
-              .setTitle("✏  Role Name Updated")
-              .addField("Old",`${re.name}`,true)
-              .addField("New",`${updated.name}`,true )
-              .addField("Role id",`${re.id}`,true )
-              .addField('By', exec, true)
-              .setTimestamp()
-            log.send(embed).catch(e => {
-              console.log(e);
-            });
-          } catch (e) {
-            console.log(e);
-          }
-        })
-    }, 1000)
-  })
- client.on("channelDelete",  dc => {
-  const channel = dc.guild.channels.find("name", "log")
-  if(channel) {
-  var embed = new Discord.RichEmbed()
-  .setTitle(dc.guild.name)
-  .setDescription(`***Channel Deleted Name : *** **${dc.name}** ⬅️`)
-  .setColor(`RANDOM`)
-  .setTimestamp();
-  channel.sendEmbed(embed)
-  }
-  });
-   
-  
-client.on('messageUpdate', (message, newMessage) => {
-    if (message.content === newMessage.content) return;
-    if (!message || !message.id || !message.content || !message.guild || message.author.bot) return;
-    const channel = message.guild.channels.find('name', 'log');
-    if (!channel) return;
-     let embed = new Discord.RichEmbed()
-       .setAuthor(`${message.author.tag}`, message.author.avatarURL)
-       .setColor('RANDOM')
-       .setDescription(`✏ **Message Edited
-Sender <@${message.author.id}>                                                                                                                         Edited In** <#${message.channel.id}>\n\nBefore Edited:\n \`${message.cleanContent}\`\n\nAfter Edited:\n \`${newMessage.cleanContent}\``)
-       .setTimestamp();
-     channel.send({embed:embed});
- });
  client.on('messageDelete', message => {
     if (!message || !message.id || !message.content || !message.guild || message.author.bot) return;
     const channel = message.guild.channels.find('name', 'log');
@@ -432,6 +323,17 @@ Sender <@${message.author.id}>                                                  
        .setTimestamp();
      channel.send({embed:embed});
  });
+client.on("channelDelete",  dc => {
+  const channel = dc.guild.channels.find("name", "log")
+  if(channel) {
+  var embed = new Discord.RichEmbed()
+  .setTitle(dc.guild.name)
+  .setDescription(`***Channel Deleted Name : *** **${dc.name}** ⬅️`)
+  .setColor(`RANDOM`)
+  .setTimestamp();
+  channel.sendEmbed(embed)
+  }
+  });
  client.on('guildMemberAdd', member => {
     if (!member || !member.id || !member.guild) return;
     const guild = member.guild;
