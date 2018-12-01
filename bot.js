@@ -785,7 +785,7 @@ client.on('guildMemberAdd', member => {
       lan = collected.first().content
       collected.first().delete()
 e.delete();
-     message.channel.send('**كم تقدر تدفع؟  :small_blue_diamond:**').then(m => {
+     message.channel.send('**كم تقدر تدفع؟  :moneybag:**').then(m => {
 let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
 .then(co => {
   md = co.first().content
