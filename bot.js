@@ -246,7 +246,6 @@ client.on('message', async message => {
  
         var modRole = message.guild.roles.find(r => r.name === 'everyone');// Alpha Codes
        
-        if(message.guild.member(message.author).roles.has(modRole.id)) return message.channel.send(':x: | معك الرتبة');// Alpha Codes
         if(!subChannel) return message.channel.send(':x: | يجب ان يتوفر روم اسمه `orders`');// Alpha Codes
        
         message.channel.send(':timer: | **اسمك؟**').then(msgS => {
