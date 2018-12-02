@@ -892,6 +892,42 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 }
 });
 
+if (message.content === '*help') {
+         let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)    
+        .setTitle('**أوامر الميوزك...**')
+        .addField('.p', 'لتشغيل اغنية')
+        .addField('.join', 'دخول رومك الصوتي')
+        .addField('.disconnect', 'الخروج من رومك الصوتي')
+        .addField('.skip', 'تخطي الأغنية')
+        .addField('.pause', 'ايقاف الاغنية مؤقتا')
+        .addField('.resume', 'تكملة الاغنية')
+        .addField('.queue', 'اظهار قائمة التشغيل')
+        .addField('.np', 'اظهار الاغنية اللي انت مشغلها حاليا')
+        .addField('.ping', 'معرفة ping البوت')
+        .addField('-new', 'لعمل تكت جديد')
+        .addField('-close', 'لاغلاق التكت')
+        .addField('+طلب', 'لتقديم طلب في روم orders')
+	.addField('!invite', 'لمعرفة عدد الانفايت الخاص بك ')
+
+.setColor('RANDOM')
+  message.author.sendEmbed(embed);
+    }
+});
+
+if (message.content === '*help') {
+         let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)    
+        .setTitle('**أوامر الادارة...**')
+        .addField('!ban', "حظر العضو")
+        .addField('!clear', 'مسح الشات بعدد رسائل محدد')
+        .addField('.bc', 'لارسال رساله بالرودكاست')
+        .setFooter('المزيد قريبا ان شاء الله!')
+
+.setColor('RANDOM')
+  message.author.sendEmbed(embed);
+    }
+});
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
