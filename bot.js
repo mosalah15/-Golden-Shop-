@@ -922,8 +922,6 @@ if (message.content === '*help') {
         .addField('!ban', "حظر العضو")
         .addField('!clear', 'مسح الشات بعدد رسائل محدد')
         .addField('.bc', 'لارسال رساله بالرودكاست')
-        .setFooter('المزيد قريبا ان شاء الله!')
-
 .setColor('RANDOM')
   message.author.sendEmbed(embed);
     }
