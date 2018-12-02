@@ -696,27 +696,30 @@ client.on('message', message => {
     if (message.content === '.help') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**أوامر الميوزك...**')
-        .setDescription('**برفكس البوت (.)**')
-        .addField('p', 'لتشغيل اغنية')
-        .addField('join', 'دخول رومك الصوتي')
-        .addField('disconnect', 'الخروج من رومك الصوتي')
-        .addField('skip', 'تخطي الأغنية')
-        .addField('pause', 'ايقاف الاغنية مؤقتا')
-        .addField('resume', 'تكملة الاغنية')
-        .addField('queue', 'اظهار قائمة التشغيل')
-        .addField('np', 'اظهار الاغنية اللي انت مشغلها حاليا')
-        .setFooter('(general_commands) لاظهار الاوامر العامة')
+        .addField('.p', 'لتشغيل اغنية')
+        .addField('.join', 'دخول رومك الصوتي')
+        .addField('.disconnect', 'الخروج من رومك الصوتي')
+        .addField('.skip', 'تخطي الأغنية')
+        .addField('.pause', 'ايقاف الاغنية مؤقتا')
+        .addField('.resume', 'تكملة الاغنية')
+        .addField('.queue', 'اظهار قائمة التشغيل')
+        .addField('.np', 'اظهار الاغنية اللي انت مشغلها حاليا')
+        .addField('.ping', 'معرفة ping البوت')
+        .addField('-new', 'لعمل تكت جديد')
+        .addField('-close', 'لاغلاق التكت')
+        .addField('+طلب', 'لتقديم طلب في روم orders')
+	.addField('!invite', 'لمعرفة عدد الانفايت الخاص بك ')
       message.channel.send(helpEmbed);
     }
 });
 
-client.on('message', message => {    var prefix = '+';// Alpha Codes
-    if (message.content === 'general_commands') {
+client.on('message', message => {    var prefix = '.';// Alpha Codes
+    if (message.content === 'help') {
         let helpEmbed = new Discord.RichEmbed()
-        .setTitle('**أوامر عامة...**')
-        .addField('avatar', "افاتار الشخص المطلوب")
-        .addField('gif', 'البحث عن جيف انت تطلبه')
-        .addField('ping', 'معرفة ping البوت')
+        .setTitle('**أوامر الادارة...**')
+        .addField('!ban', "حظر العضو")
+        .addField('!clear', 'مسح الشات بعدد رسائل محدد')
+        .addField('.bc', 'لارسال رساله بالرودكاست')
         .setFooter('المزيد قريبا ان شاء الله!')
       message.channel.send(helpEmbed);
     }
@@ -762,16 +765,7 @@ if (message.content.startsWith("*cv")) {
          message.channel.send({embed:embed});
                         }
                     });
-client.on('guildMemberAdd', member => {
-  member.guild.fetchInvites().then(guildInvites => {
-    const ei = invites[member.guild.id];
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
-    const stewart = member.guild.channels.find("name", "welcome");
-     stewart.send(`<@${member.user.id}> invited By  <@${inviter.id}>:tada:`);
-   //  stewart.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
-  }); 
-});
+
 	client.on('message', async message => {
   var prefix = '+';// Alpha Codes
   if(message.content.startsWith(prefix + "طلب")) {
@@ -898,5 +892,15 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 }
 });
 
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const stewart = member.guild.channels.find("name", "welcome");
+     stewart.send(`<@${member.user.id}> invited By  <@${inviter.id}>:tada:`);
+   //  stewart.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
+  }); 
+});
 
 client.login(process.env.BOT_TOKEN); 
