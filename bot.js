@@ -1,6 +1,6 @@
 ﻿const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "."
+var prefix = "!"
 
 
 client.on('ready', function() {
@@ -100,7 +100,7 @@ msg.delete();
 });
 
 client.on('message', message => {
- var prefix = "-"
+ var prefix = "!"
  
 if (message.content.toLowerCase().startsWith(prefix + `new`)) {
     const reason = message.content.split(" ").slice(1).join(" ");
@@ -179,11 +179,11 @@ client.on('message', message => {
     if (message.content.includes('discord.gg')){
                         if(!message.channel.guild) return message.reply ('')
                     if (!message.member.hasPermissions(['MANAGE_MESSAGES'])){
-       message.channel.send('ban <@' + message.author.id + '>')
+       message.channel.send('!ban <@' + message.author.id + '>')
        message.delete() 
        }
     }
-          if (message.content.startsWith("ban ")) {
+          if (message.content.startsWith("!ban ")) {
              if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply();
              var member= message.mentions.members.first();
              member.ban().then((member) => {
@@ -692,59 +692,41 @@ function play(guild, song) {
 }
 
 
+
+});
 client.on('message', message => {
-    if (message.content === '.help') {
-        let helpEmbed = new Discord.RichEmbed()
+if (message.content === '!help') {
+         let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)    
         .setTitle('**أوامر الميوزك...**')
-        .addField('.p', 'لتشغيل اغنية')
-        .addField('.join', 'دخول رومك الصوتي')
-        .addField('.disconnect', 'الخروج من رومك الصوتي')
-        .addField('.skip', 'تخطي الأغنية')
-        .addField('.pause', 'ايقاف الاغنية مؤقتا')
-        .addField('.resume', 'تكملة الاغنية')
-        .addField('.queue', 'اظهار قائمة التشغيل')
-        .addField('.np', 'اظهار الاغنية اللي انت مشغلها حاليا')
-        .addField('.ping', 'معرفة ping البوت')
-        .addField('-new', 'لعمل تكت جديد')
-        .addField('-close', 'لاغلاق التكت')
+        .addField('!', 'برفكس البوت')
+        .addField('!p', 'لتشغيل اغنية')
+        .addField('!join', 'دخول رومك الصوتي')
+        .addField('!disconnect', 'الخروج من رومك الصوتي')
+        .addField('!skip', 'تخطي الأغنية')
+        .addField('!pause', 'ايقاف الاغنية مؤقتا')
+        .addField('!resume', 'تكملة الاغنية')
+        .addField('!queue', 'اظهار قائمة التشغيل')
+        .addField('!np', 'اظهار الاغنية اللي انت مشغلها حاليا')
+        .addField('!ping', 'معرفة ping البوت')
+        .addField('!new', 'لعمل تكت جديد')
+        .addField('!close', 'لاغلاق التكت')
         .addField('+طلب', 'لتقديم طلب في روم orders')
-	.addField('!invite', 'لمعرفة عدد الانفايت الخاص بك ')
-      message.channel.send(helpEmbed);
+        .addField('!مصحف', 'لعرض صفحات القران الكريم')
+
+.setColor('RANDOM')
+  message.author.sendEmbed(embed);
     }
 });
-
-client.on('message', message => {    var prefix = '.';// Alpha Codes
-    if (message.content === 'help') {
-        let helpEmbed = new Discord.RichEmbed()
+client.on('message', message => {
+if (message.content === '!help') {
+         let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)    
         .setTitle('**أوامر الادارة...**')
         .addField('!ban', "حظر العضو")
         .addField('!clear', 'مسح الشات بعدد رسائل محدد')
-        .addField('.bc', 'لارسال رساله بالرودكاست')
+        .addField('!bc', 'لارسال رساله بالرودكاست')
         .setFooter('المزيد قريبا ان شاء الله!')
-      message.author.send(helpEmbed);
-    }
-});
-client.on('message', message => {
-if (message.content === '*help') {
-         let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)    
-      .addField("**:globe_with_meridians: الأوامر العامه**","** **")
-      .addField("***ping :stopwatch:**","**لـ سرعة إتصالك**")
-      .addField("***id :chart_with_downwards_trend:**","**عرض سرعه اتصال البوت**")
-      .addField("***avatar :camping:**","**لـ صور الشخص المختار**")
-      .addField("***roll :1234:**","**لـ القرعه من 1 - 100**")
-      .addField("***server :recycle:**","**لـ معلومات السيرفر**")
-      .addField("***roles :medal: **","**لـــ معرفة رولات السيرفر**")
-      .addField("***say :arrows_counterclockwise:**","**لـ يكرر الكلام اللى تقوله**")
-      .addField("***time :alarm_clock:**","**لـ معرفة الساعة**")
-      .addField("***date **","**لـ معرفة التاريخ**")
-	   .addField("***invites**","**لـــ معرفة دعواتك في السيرفر**")
-	   .addField("***bot**","**لـــ معرفة معلومات البوت**")
-	   .addField("***قوانين**","**لـــ معرفة قوانين السيرفر**")
-	    .addField("***جديد**","**لـــ معرفة الجديد في البوت :)**")
-        .addField("***tag**","**لـــ زخرفة الكلام**")
-        .addField("***رابط **","**لـــا عطاك رابط السيرفر**")
-	    .addField("***sug **","**لاقتراح اي اقتراح تريد ملزوم سبب طويل**")
 
 
 .setColor('RANDOM')
@@ -763,7 +745,7 @@ client.on('message', msg => {
 }
 })
 client.on('ready', () => { //code bot not leave room voice //Bot Is Online
-    client.channels.get("517986511527084042").join(); //by : Toxic Codes
+    client.channels.get("517986511527084042").join(); //by : •Golden Shop•
     });
 
 client.on("message", (message) => {
@@ -778,7 +760,7 @@ if (message.content.startsWith("*cv")) {
 
       client.on('message', message => {
                                 if(!message.channel.guild) return;
-                        if (message.content.startsWith('*ping')) {
+                        if (message.content.startsWith('!ping')) {
                             if(!message.channel.guild) return;
                             var msg = `${Date.now() - message.createdTimestamp}`
                             var api = `${Math.round(client.ping)}`
@@ -793,7 +775,7 @@ if (message.content.startsWith("*cv")) {
                     });
 
 	client.on('message', async message => {
-  var prefix = '+';// Alpha Codes
+  var prefix = '!';// Alpha Codes
   if(message.content.startsWith(prefix + "طلب")) {
     await message.channel.send("**اسمك ؟:small_orange_diamond:**").then(e => {
     let filter = m => m.author.id === message.author.id
