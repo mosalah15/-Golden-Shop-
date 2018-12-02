@@ -104,10 +104,10 @@ client.on('message', message => {
  
 if (message.content.toLowerCase().startsWith(prefix + `new`)) {
     const reason = message.content.split(" ").slice(1).join(" ");
-    if (!message.guild.roles.exists("name", "invite managers")) return message.channel.send(`\`invite managers\` **لا توجد رتبة بأسم**`);
+    if (!message.guild.roles.exists("name", "Golden Support")) return message.channel.send(`\`Golden Support\` **لا توجد رتبة بأسم**`);
     if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`**لديك تذكرة مفتوحة بالفعل**`);
     message.guild.createChannel(`ticket-${message.author.username}}`, "text").then(c => {
-        let role = message.guild.roles.find("name", "invite managers");
+        let role = message.guild.roles.find("name", "Golden Support");
         let role2 = message.guild.roles.find("name", "@everyone");
         c.overwritePermissions(role, {
             SEND_MESSAGES: true,
@@ -211,7 +211,7 @@ client.user.setStatus("dnd")
 
 client.on ("guildMemberAdd", member => {
   
-   var role = member.guild.roles.find ("name", "Owner");
+   var role = member.guild.roles.find ("name", "Golden Member");
    member.addRole (role);
   
 })
