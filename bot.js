@@ -924,7 +924,6 @@ if (message.content === '*help') {
         .addField('.bc', 'لارسال رساله بالرودكاست')
 .setColor('RANDOM')
   message.author.sendEmbed(embed);
-    }
 });
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
