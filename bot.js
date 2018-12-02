@@ -721,7 +721,7 @@ client.on('message', message => {    var prefix = '.';// Alpha Codes
         .addField('!clear', 'مسح الشات بعدد رسائل محدد')
         .addField('.bc', 'لارسال رساله بالرودكاست')
         .setFooter('المزيد قريبا ان شاء الله!')
-      message.channel.send(helpEmbed);
+      message.author.send(helpEmbed);
     }
 });
 
