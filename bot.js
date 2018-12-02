@@ -690,7 +690,37 @@ function play(guild, song) {
 
 	serverQueue.textChannel.send(`**${song.title}**, is now playing!`);
 }
+client.on('message', message => {
+    if (message.content === '!!!!help') {
+        let helpEmbed = new Discord.RichEmbed()
+        .setTitle('**أوامر الميوزك...**')
+        .addField('.p', 'لتشغيل اغنية')
+        .addField('.join', 'دخول رومك الصوتي')
+        .addField('.disconnect', 'الخروج من رومك الصوتي')
+        .addField('.skip', 'تخطي الأغنية')
+        .addField('.pause', 'ايقاف الاغنية مؤقتا')
+        .addField('.resume', 'تكملة الاغنية')
+        .addField('.queue', 'اظهار قائمة التشغيل')
+        .addField('.np', 'اظهار الاغنية اللي انت مشغلها حاليا')
+        .addField('.ping', 'معرفة ping البوت')
+        .addField('-new', 'لعمل تكت جديد')
+        .addField('-close', 'لاغلاق التكت')
+        .addField('!طلب', 'لتقديم طلب في روم orders')
+	.addField('!invite', 'لمعرفة عدد الانفايت الخاص بك ')
+      message.channel.send(helpEmbed);
+    }
+});
 
+client.on('message', message => {    var prefix = '.';// Alpha Codes
+    if (message.content === '!!!!help') {
+        let helpEmbed = new Discord.RichEmbed()
+        .setTitle('**أوامر الادارة...**')
+        .addField('!ban', "حظر العضو")
+        .addField('!clear', 'مسح الشات بعدد رسائل محدد')
+        .addField('.bc', 'لارسال رساله بالرودكاست')
+        .setFooter('المزيد قريبا ان شاء الله!')
+      message.author.send(helpEmbed);
+    }
 
 
 });
