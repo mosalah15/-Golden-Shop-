@@ -915,16 +915,6 @@ if (message.content === '*help') {
     }
 });
 
-if (message.content === '*help') {
-         let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)    
-        .setTitle('**أوامر الادارة...**')
-        .addField('!ban', "حظر العضو")
-        .addField('!clear', 'مسح الشات بعدد رسائل محدد')
-        .addField('.bc', 'لارسال رساله بالرودكاست')
-.setColor('RANDOM')
-  message.author.sendEmbed(embed);
-});
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
