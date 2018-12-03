@@ -416,7 +416,7 @@ client.on('message', async msg => {
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-	if (command === `p`) {
+	if (command === `play`) {
 		const voiceChannel = msg.member.voiceChannel;
         
         if (!voiceChannel) return msg.channel.send("يجب ان تكون في روم صوتي");
@@ -669,7 +669,7 @@ if (message.content === '!help') {
 .setThumbnail(message.author.avatarURL)    
         .setTitle('**أوامر الميوزك...**')
         .addField('!', 'برفكس البوت')
-        .addField('!p', 'لتشغيل اغنية')
+        .addField('!play', 'لتشغيل اغنية')
         .addField('!join', 'دخول رومك الصوتي')
         .addField('!disconnect', 'الخروج من رومك الصوتي')
         .addField('!skip', 'تخطي الأغنية')
@@ -714,7 +714,7 @@ client.on('message', msg => {
 }
 })
 client.on('ready', () => { //code bot not leave room voice //Bot Is Online
-    client.channels.get("517986511527084042").join(); //by : •Golden Shop•
+    client.channels.get("519132658454888450").join(); //by : •Golden Shop•
     });
 
 client.on("message", (message) => {
