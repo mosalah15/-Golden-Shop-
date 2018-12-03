@@ -1022,7 +1022,7 @@ message.channel.send("**:x:  User must be in voice channel **")
 }
 } else {
 message.react("❌");
-});
+);
 	    
 	    
 client.on('guildMemberAdd', member => {
