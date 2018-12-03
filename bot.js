@@ -869,7 +869,7 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 }
 });	    
 client.on("guildMemberAdd", m => {
-    if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
+    if (datediff(parseDate(moment(m.user.createdTimestamp).format('2')), parseDate(moment().format('2'))) < 8) {
         m.ban();
     };
     function parseDate(str) {
