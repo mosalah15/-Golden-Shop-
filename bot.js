@@ -170,7 +170,7 @@ client.on('ready', () => {
 
 client.on("ready", () => {
   function lol() {
-    client.guilds.get('517740329219391498').roles.find("name", "Golden Member").setColor("RANDOM");
+    client.guilds.get('517740329219391498').roles.find("name", "Golden Owner👑", "Owner").setColor("RANDOM");
   };
   setInterval(lol, 60000);
 });
@@ -1021,9 +1021,10 @@ message.channel.send("**:x:  User must be in voice channel **")
  message.channel.send("**:x:  You must be in voice channel!**")
 }
 } else {
-message.react("❌")
- }}})
+message.react("❌");
 });
+	    
+	    
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
