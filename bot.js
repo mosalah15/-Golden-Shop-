@@ -995,6 +995,35 @@ client.on("message", message => {
   };
   
   });
+client.on('message',message => {
+if(!message.channel.guild) return;
+    var prefix1 = "!";
+if (!message.content.startsWith(prefix1)) return;
+    var command = message.content.split(" ")[0];
+     command = command.slice(prefix1.length);
+    if (command == "move") {
+ if (message.member.hasPermission("MOVE_MEMBERS")) {
+ if (message.mentions.users.size === 0) {
+ return message.channel.send("**:x: Invalid User **")
+}
+if (message.member.voiceChannel != null) {
+ if (message.mentions.members.first().voiceChannel != null) {
+ var authorchannelname = message.member.voiceChannel.name;
+ var authorchannel = message.member.voiceChannelID;
+ var userid = message.mentions.members.first().id;
+ 
+ message.guild.members.get(userid).setVoiceChannel(authorchannel).then(m => message.channel.send(`:white_check_mark: **<@${userid}> moved to \`\`${authorchannelname}\`\`**`))
+     
+} else {
+message.channel.send("**:x:  User must be in voice channel **")
+}
+} else {
+ message.channel.send("**:x:  You must be in voice channel!**")
+}
+} else {
+message.react("❌")
+ }}})
+});
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
