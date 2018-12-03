@@ -1021,9 +1021,8 @@ message.channel.send("**:x:  User must be in voice channel **")
  message.channel.send("**:x:  You must be in voice channel!**")
 }
 } else {
-message.react("❌");
-);
-	    
+message.react("❌")
+ }}})	    
 	    
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
