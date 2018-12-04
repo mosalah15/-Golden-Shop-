@@ -667,7 +667,7 @@ client.on('message', message => {
 if (message.content === '!help') {
          let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)    
-        .setTitle('**أوامر الميوزك...**')
+        .setTitle('**أوامر عامه...**')
         .addField('!', 'برفكس البوت')
         .addField('!play', 'لتشغيل اغنية')
         .addField('!join', 'دخول رومك الصوتي')
