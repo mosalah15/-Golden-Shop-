@@ -871,7 +871,7 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 const wait = require('util').promisify(setTimeout);
 
 client.on('ready', () => {
-  wait(1000);
+  wait(5000);
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
