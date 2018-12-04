@@ -868,19 +868,7 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
     })
 }
 });	    
-client.on("guildMemberAdd", m => {
-    if (datediff(parseDate(moment(m.user.createdTimestamp).format('2')), parseDate(moment().format('2'))) < 8) {
-        m.ban();
-    };
-    function parseDate(str) {
-        var mdy = str.split('/');
-        return new Date(mdy[2], mdy[0]-1, mdy[1]);
-    };
-   
-    function datediff(first, second) {
-        return Math.round((second-first)/(1000*60*60*24));
-    };
-});
+
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
