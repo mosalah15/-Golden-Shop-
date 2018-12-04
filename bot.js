@@ -630,7 +630,7 @@ function play(guild, song) {
 client.on('message', message => {
     if (message.content === '!!!!help') {
         let helpEmbed = new Discord.RichEmbed()
-        .setTitle('**أوامر الميوزك...**')
+        .setTitle('**أوامر عامه...**')
         .addField('.p', 'لتشغيل اغنية')
         .addField('.join', 'دخول رومك الصوتي')
         .addField('.disconnect', 'الخروج من رومك الصوتي')
