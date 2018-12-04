@@ -869,7 +869,7 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 }
 });	    
 client.on('guildMemberAdd', member => {
-  wait(500);
+  wait(3000);
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
