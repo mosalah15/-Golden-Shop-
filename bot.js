@@ -782,7 +782,8 @@ gg.send({embed : new Discord.RichEmbed()
           .setFooter(`♥•Golden Shop•♥`)
 .setTimestamp()
 });
-gg.send('@Seller')
+var hereRole = msg.channel.server.roles.find('Seller', 'here');
+gg.send(hereRole.mention)
 }        
 })
 })
