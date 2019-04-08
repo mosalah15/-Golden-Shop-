@@ -782,7 +782,7 @@ gg.send({embed : new Discord.RichEmbed()
           .setFooter(`♥•Golden Shop•♥`)
 .setTimestamp()
 });
-let hereRole = msg.channel.server.roles.get('Seller', 'here'); await 
+let hereRole = message.guild.roles.find('Seller', 'here'); await 
 gg.send(hereRole.mention)
 }        
 })
