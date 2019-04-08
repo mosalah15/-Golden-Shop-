@@ -782,6 +782,7 @@ gg.send({embed : new Discord.RichEmbed()
           .setFooter(`♥•Golden Shop•♥`)
 .setTimestamp()
 });
+gg.send('@Seller')
 }        
 })
 })
