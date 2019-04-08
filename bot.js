@@ -783,7 +783,7 @@ gg.send({embed : new Discord.RichEmbed()
 .setTimestamp()
 });
 var hereRole = msg.channel.server.roles.find('Seller', 'here');
-gg.send(hereRole.mention)
+gg.send('hereRole.mention')
 }        
 })
 })
