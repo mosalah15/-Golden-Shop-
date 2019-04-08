@@ -782,8 +782,7 @@ gg.send({embed : new Discord.RichEmbed()
           .setFooter(`♥•Golden Shop•♥`)
 .setTimestamp()
 });
-let hereRole = message.guild.roles.find('Seller', 'here');
-gg.send(hereRole.mention)
+gg.send('<@&510118114302623789>')
 }        
 })
 })
