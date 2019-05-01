@@ -713,9 +713,6 @@ client.on('message', msg => {
     }
 }
 })
-client.on('ready', () => { //code bot not leave room voice //Bot Is Online
-    client.channels.get("519132658454888450").join(); //by : •Golden Shop•
-    });
 
 client.on("message", (message) => {
 if (message.content.startsWith("*cv")) {
